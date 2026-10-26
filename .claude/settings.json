@@ -1,15 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node --test*)",
-      "Bash(git status*)",
-      "Bash(git diff*)",
-      "Bash(git log*)",
-      "Bash(git add*)",
-      "Bash(git commit*)"
+      "Bash(node --test:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [
-      "Bash(git push*)"
+      "Bash(git push:*)"
     ]
   },
   "hooks": {
