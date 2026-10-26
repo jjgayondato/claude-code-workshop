@@ -1,0 +1,124 @@
+[
+  {
+    "id": "KZ-207",
+    "title": "Welcome email for new merchants",
+    "status": "Open",
+    "assignee": null,
+    "reviewApproved": false,
+    "qat": [],
+    "deployApprovedBy": null,
+    "history": [{ "status": "Open", "at": "2026-10-23T02:00:00.000Z" }]
+  },
+  {
+    "id": "KZ-204",
+    "title": "Update the SST rate table",
+    "status": "Analysis",
+    "assignee": "Daniel",
+    "reviewApproved": false,
+    "qat": [],
+    "deployApprovedBy": null,
+    "history": [
+      { "status": "Open", "at": "2026-10-19T01:30:00.000Z" },
+      { "status": "Analysis", "at": "2026-10-21T03:00:00.000Z" }
+    ]
+  },
+  {
+    "id": "KZ-205",
+    "title": "Search customers by phone number",
+    "status": "In Progress",
+    "assignee": "Wei Ming",
+    "reviewApproved": false,
+    "qat": [],
+    "deployApprovedBy": null,
+    "history": [
+      { "status": "Open", "at": "2026-10-12T01:00:00.000Z" },
+      { "status": "Analysis", "at": "2026-10-13T02:00:00.000Z" },
+      { "status": "In Progress", "at": "2026-10-20T01:00:00.000Z" }
+    ]
+  },
+  {
+    "id": "KZ-206",
+    "title": "Cache the sales dashboard",
+    "status": "Code Review",
+    "assignee": "Wei Ming",
+    "reviewApproved": false,
+    "qat": [],
+    "deployApprovedBy": null,
+    "history": [
+      { "status": "Open", "at": "2026-10-05T01:00:00.000Z" },
+      { "status": "Analysis", "at": "2026-10-06T01:00:00.000Z" },
+      { "status": "In Progress", "at": "2026-10-08T01:00:00.000Z" },
+      { "status": "Code Review", "at": "2026-10-22T06:00:00.000Z" }
+    ]
+  },
+  {
+    "id": "KZ-201",
+    "title": "Export the monthly report to PDF",
+    "status": "Staging Testing",
+    "assignee": "Wei Ming",
+    "reviewApproved": true,
+    "qat": [
+      { "id": "KZ-201-QAT-1", "status": "Resolved" },
+      { "id": "KZ-201-QAT-2", "status": "Open" }
+    ],
+    "deployApprovedBy": null,
+    "history": [
+      { "status": "Open", "at": "2026-09-28T01:00:00.000Z" },
+      { "status": "Analysis", "at": "2026-09-29T01:00:00.000Z" },
+      { "status": "In Progress", "at": "2026-10-01T01:00:00.000Z" },
+      { "status": "Code Review", "at": "2026-10-09T01:00:00.000Z" },
+      { "status": "Staging Testing", "at": "2026-10-14T01:00:00.000Z" }
+    ]
+  },
+  {
+    "id": "KZ-202",
+    "title": "Fix the login session timeout",
+    "status": "Staging Testing",
+    "assignee": "Siti",
+    "reviewApproved": true,
+    "qat": [{ "id": "KZ-202-QAT-1", "status": "Open" }],
+    "deployApprovedBy": null,
+    "history": [
+      { "status": "Open", "at": "2026-10-07T01:00:00.000Z" },
+      { "status": "Analysis", "at": "2026-10-07T05:00:00.000Z" },
+      { "status": "In Progress", "at": "2026-10-08T01:00:00.000Z" },
+      { "status": "Code Review", "at": "2026-10-15T01:00:00.000Z" },
+      { "status": "Staging Testing", "at": "2026-10-19T01:00:00.000Z" }
+    ]
+  },
+  {
+    "id": "KZ-203",
+    "title": "Audit log for refunds",
+    "status": "Pending Production",
+    "assignee": "Siti",
+    "reviewApproved": true,
+    "qat": [{ "id": "KZ-203-QAT-1", "status": "Resolved" }],
+    "deployApprovedBy": null,
+    "history": [
+      { "status": "Open", "at": "2026-09-21T01:00:00.000Z" },
+      { "status": "Analysis", "at": "2026-09-22T01:00:00.000Z" },
+      { "status": "In Progress", "at": "2026-09-24T01:00:00.000Z" },
+      { "status": "Code Review", "at": "2026-10-02T01:00:00.000Z" },
+      { "status": "Staging Testing", "at": "2026-10-06T01:00:00.000Z" },
+      { "status": "Pending Production", "at": "2026-10-16T01:00:00.000Z" }
+    ]
+  },
+  {
+    "id": "KZ-200",
+    "title": "Bulk import of product codes",
+    "status": "Deployed",
+    "assignee": "Wei Ming",
+    "reviewApproved": true,
+    "qat": [{ "id": "KZ-200-QAT-1", "status": "Resolved" }],
+    "deployApprovedBy": "Ravi",
+    "history": [
+      { "status": "Open", "at": "2026-09-14T01:00:00.000Z" },
+      { "status": "Analysis", "at": "2026-09-15T01:00:00.000Z" },
+      { "status": "In Progress", "at": "2026-09-16T01:00:00.000Z" },
+      { "status": "Code Review", "at": "2026-09-25T01:00:00.000Z" },
+      { "status": "Staging Testing", "at": "2026-09-29T01:00:00.000Z" },
+      { "status": "Pending Production", "at": "2026-10-08T01:00:00.000Z" },
+      { "status": "Deployed", "at": "2026-10-21T10:00:00.000Z" }
+    ]
+  }
+]

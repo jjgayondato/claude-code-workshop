@@ -1,0 +1,12 @@
+{
+  "name": "claude-code-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ticket board for the Claude Code workshop. No packages to install.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}

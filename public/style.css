@@ -1,0 +1,22 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.4 system-ui, sans-serif; background: #f4f5f7; color: #172b4d; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #0747a6; color: #fff; }
+header h1 { margin: 0; font-size: 20px; }
+select { margin-left: 8px; padding: 4px; }
+#message { min-height: 1.4em; margin: 8px 20px; }
+#message.error { color: #bf2600; font-weight: 600; }
+#message.ok { color: #006644; }
+#board { display: flex; gap: 12px; padding: 0 20px 20px; overflow-x: auto; }
+.column { flex: 0 0 230px; background: #ebecf0; border-radius: 6px; padding: 8px; }
+.column h2 { font-size: 12px; text-transform: uppercase; margin: 4px 4px 8px; color: #5e6c84; }
+.column h2 span { float: right; }
+.card { background: #fff; border-radius: 4px; padding: 8px; margin-bottom: 8px; box-shadow: 0 1px 1px rgba(9, 30, 66, .25); }
+.card p { margin: 6px 0; }
+.card small { color: #5e6c84; }
+.top { display: flex; justify-content: space-between; }
+.days { font-size: 12px; background: #dfe1e6; border-radius: 10px; padding: 0 8px; }
+.qat { list-style: none; padding: 0; margin: 6px 0; font-size: 12px; }
+.qat .resolved { color: #006644; }
+.qat .open { color: #bf2600; }
+.actions { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.actions button { font-size: 12px; padding: 2px 6px; cursor: pointer; }
