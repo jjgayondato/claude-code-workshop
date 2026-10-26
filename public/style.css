@@ -7,7 +7,7 @@ select { margin-left: 8px; padding: 4px; }
 #message.error { color: #bf2600; font-weight: 600; }
 #message.ok { color: #006644; }
 #board { display: flex; gap: 12px; padding: 0 20px 20px; overflow-x: auto; }
-.column { flex: 0 0 230px; background: #ebecf0; border-radius: 6px; padding: 8px; }
+.column { flex: 1 1 0; min-width: 165px; background: #ebecf0; border-radius: 6px; padding: 8px; }
 .column h2 { font-size: 12px; text-transform: uppercase; margin: 4px 4px 8px; color: #5e6c84; }
 .column h2 span { float: right; }
 .card { background: #fff; border-radius: 4px; padding: 8px; margin-bottom: 8px; box-shadow: 0 1px 1px rgba(9, 30, 66, .25); }
