@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { stepDurations } from '../src/timeInStep.js';
+import { stepDurations, daysInCurrentStep } from '../src/timeInStep.js';
 
 describe('time in step', () => {
   it('counts whole days between two steps', () => {
@@ -11,5 +11,12 @@ describe('time in step', () => {
       ],
     };
     assert.equal(stepDurations(t)[0].days, 2);
+  });
+});
+
+describe('KZ-105 days in the current step', () => {
+  it('counts the current step until now', () => {
+    const t = { history: [{ status: 'Open', at: '2026-10-20T01:00:00.000Z' }] };
+    assert.equal(daysInCurrentStep(t, new Date('2026-10-27T06:00:00.000Z')), 7);
   });
 });

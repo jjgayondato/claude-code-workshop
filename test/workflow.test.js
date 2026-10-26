@@ -94,3 +94,50 @@ describe('closing a ticket', () => {
     assert.throws(() => close(t, DEV, NOW), WorkflowError);
   });
 });
+
+describe('KZ-101 release gate: every QAT sub-ticket', () => {
+  it('blocks Pending Production when any QAT sub-ticket is still Open', () => {
+    const t = ticket({
+      status: 'Staging Testing',
+      qat: [{ id: 'Q1', status: 'Resolved' }, { id: 'Q2', status: 'Open' }],
+    });
+    assert.equal(canMoveTo(t, 'Pending Production').ok, false);
+  });
+
+  it('blocks Pending Production when there is no QAT sub-ticket', () => {
+    const t = ticket({ status: 'Staging Testing', qat: [] });
+    assert.equal(canMoveTo(t, 'Pending Production').ok, false);
+  });
+});
+
+describe('KZ-102 bounce-back clears the review', () => {
+  it('a sent-back ticket needs a new review approval', () => {
+    const t = ticket({ status: 'Staging Testing', reviewApproved: true });
+    const back = sendBack(t, 'Timeout is still 5 minutes', NOW);
+    assert.equal(back.reviewApproved, false);
+    const inReview = moveTicket(back, 'Code Review', NOW);
+    assert.equal(canMoveTo(inReview, 'Staging Testing').ok, false);
+  });
+
+  it('needs a reason', () => {
+    const t = ticket({ status: 'Staging Testing' });
+    assert.throws(() => sendBack(t, '  ', NOW), WorkflowError);
+  });
+});
+
+describe('KZ-103 only Infra approves a deploy', () => {
+  for (const user of [BA, TL]) {
+    it(`a ${user.role.toUpperCase()} cannot approve a deploy`, () => {
+      const t = ticket({ status: 'Pending Production' });
+      assert.throws(() => approveDeploy(t, user), WorkflowError);
+    });
+  }
+});
+
+describe('KZ-104 close only after deployment', () => {
+  for (const status of ['Open', 'In Progress', 'Pending Production']) {
+    it(`a BA cannot close a ticket in ${status}`, () => {
+      assert.throws(() => close(ticket({ status }), BA, NOW), WorkflowError);
+    });
+  }
+});

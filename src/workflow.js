@@ -42,7 +42,8 @@ export function canMoveTo(ticket, to) {
   if (to === 'Staging Testing' && !ticket.reviewApproved) {
     return { ok: false, reason: `${ticket.id} needs an approved code review first` };
   }
-  if (to === 'Pending Production' && ticket.qat[0]?.status !== 'Resolved') {
+  const allQatResolved = ticket.qat.length > 0 && ticket.qat.every((q) => q.status === 'Resolved');
+  if (to === 'Pending Production' && !allQatResolved) {
     return { ok: false, reason: `${ticket.id} has QAT sub-tickets that are not Resolved` };
   }
   if (to === 'Deployed' && !ticket.deployApprovedBy) {
@@ -68,12 +69,14 @@ export function sendBack(ticket, reason, now = new Date()) {
   if (ticket.status !== 'Staging Testing') {
     throw new WorkflowError(`${ticket.id} is not in Staging Testing`);
   }
-  return withStatus(ticket, 'In Progress', now, { lastSendBackReason: reason });
+  if (!reason?.trim()) throw new WorkflowError(`${ticket.id} needs a reason to send it back`);
+  // The code will change again, so the old review approval no longer counts.
+  return withStatus(ticket, 'In Progress', now, { lastSendBackReason: reason, reviewApproved: false });
 }
 
 export function approveDeploy(ticket, user) {
-  if (user.role === 'developer') {
-    throw new WorkflowError('A developer cannot approve their own deploy');
+  if (user.role !== 'infra') {
+    throw new WorkflowError(`Only Infra can approve a deploy, not ${user.role}`);
   }
   if (ticket.status !== 'Pending Production') {
     throw new WorkflowError(`${ticket.id} is not Pending Production`);
@@ -83,5 +86,6 @@ export function approveDeploy(ticket, user) {
 
 export function close(ticket, user, now = new Date()) {
   if (user.role !== 'ba') throw new WorkflowError(`Only a BA can close a ticket, not ${user.role}`);
+  if (ticket.status !== 'Deployed') throw new WorkflowError(`${ticket.id} is not Deployed yet`);
   return withStatus(ticket, 'Closed', now);
 }
