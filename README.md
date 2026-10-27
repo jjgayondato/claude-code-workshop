@@ -19,6 +19,10 @@ node server.js   # open http://localhost:3000
 Use "Acting as" at the top of the board to switch between BA, TL,
 developer and Infra users.
 
+## Prompts
+
+Copy every exercise prompt from [PROMPTS.md](PROMPTS.md).
+
 ## Your task
 
 Pick one ticket in `tickets/`:
